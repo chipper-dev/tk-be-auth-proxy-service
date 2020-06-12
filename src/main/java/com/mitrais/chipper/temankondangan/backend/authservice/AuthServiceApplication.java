@@ -2,14 +2,14 @@ package com.mitrais.chipper.temankondangan.backend.authservice;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.cloud.netflix.eureka.server.EnableEurekaServer;
+import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 import org.springframework.cloud.netflix.zuul.EnableZuulProxy;
-import org.springframework.cloud.openfeign.EnableFeignClients;
+import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 @EnableZuulProxy //act as Zuul proxy
-@EnableEurekaServer//for making this application as eureka server
-@EnableFeignClients
+@EnableEurekaClient //for making this application as eureka client
 @SpringBootApplication
+@EnableSwagger2
 public class AuthServiceApplication {
 
 	public static void main(String[] args) {
