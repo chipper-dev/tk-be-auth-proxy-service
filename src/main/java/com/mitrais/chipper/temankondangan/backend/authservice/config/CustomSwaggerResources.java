@@ -1,4 +1,4 @@
-package com.mitrais.chipper.temankondangan.backend.authservice;
+package com.mitrais.chipper.temankondangan.backend.authservice.config;
 
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.context.annotation.Primary;
