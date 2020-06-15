@@ -1,0 +1,26 @@
+server:
+  port: 9090
+  application:
+    name: proxy-auth-service
+
+spring:
+  cloud:
+    config:
+      uri: http://localhost:8888
+      name: eureka-client
+  management:
+    security:
+      enabled: false
+
+#ENABLE DYNAMIC ROUTING
+management:
+  endpoints:
+    routes:
+      enabled: true
+    web:
+      exposure:
+        include=*:
+
+#Actuator contains the health indicators used by Eureka Server to determine
+# the health of the service.
+# (By default, Eureka server set the URL to the /info of the service to check the health)
