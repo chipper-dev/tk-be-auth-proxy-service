@@ -4,10 +4,10 @@ server:
 spring:
   application:
     name: proxy-auth-service
-  cloud:
-    config:
-      uri: http://${CONFIG_SERVICE_URL}:8888
-      name: eureka-client, service-routes
+#  cloud:
+##    config:
+##      uri: ${CONFIG_SERVICE_URL}:8888
+##      name: eureka-client, service-routes
   management:
     security:
       enabled: false
@@ -20,6 +20,34 @@ management:
     web:
       exposure:
         include=*:
+
+eureka:
+  instance:
+    leaseRenewalIntervalInSeconds: 5
+    leaseExpirationDurationInSeconds: 2
+    prefer-ip-address: true
+  client:
+    serviceUrl:
+      defaultZone: ${EUREKA_SERVER_URL}/eureka/
+    healthcheck:
+      enabled: true
+    lease:
+      duration: 5
+
+zuul:
+  igoredServices: '*'
+  routes:
+    hello-world-service:
+      path: /hello-service/**
+      serviceId: hello-world-service
+
+hello-world-service:
+  ribbon:
+    listOfServers: hello-world-service:9091
+
+ribbon:
+  eureka:
+    enabled: false
 
 #Actuator contains the health indicators used by Eureka Server to determine
 # the health of the service.
