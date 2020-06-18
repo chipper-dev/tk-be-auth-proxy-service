@@ -45,31 +45,31 @@ zuul:
       serviceId: hello-world-service
     applicant-service:
       sensitiveHeaders:
-      path: /applicant-service/**
+      path: /applicant/**
       url: http://chippermitrais.ddns.net/applicant
     auth-service:
       sensitiveHeaders:
-      path: /auth-service/**
+      path: /auth/**
       url: http://chippermitrais.ddns.net/auth
     event-service:
       sensitiveHeaders:
-      path: /event-service/**
+      path: /event/**
       url: http://chippermitrais.ddns.net/event
     imagefile-service:
       sensitiveHeaders:
-      path: /imagefile-service/**
+      path: /imagefile/**
       url: http://chippermitrais.ddns.net/imagefile
     oauth-service:
       sensitiveHeaders:
-      path: /oauth-service/**
+      path: /oauth/**
       url: http://chippermitrais.ddns.net/oauth
     profile-service:
       sensitiveHeaders:
-      path: /profile-service/**
+      path: /profile/**
       url: http://chippermitrais.ddns.net/profile
     user-service:
       sensitiveHeaders:
-      path: /user-service/**
+      path: /user/**
       url: http://chippermitrais.ddns.net/user
 
 
