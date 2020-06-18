@@ -36,18 +36,54 @@ eureka:
 
 zuul:
   igoredServices: '*'
+  host:
+    connect-timeout-millis: 30000
+    socket-timeout-millis: 30000
   routes:
     hello-world-service:
       path: /hello-service/**
       serviceId: hello-world-service
+    applicant-service:
+      sensitiveHeaders:
+      path: /applicant-service/**
+      url: http://chippermitrais.ddns.net/applicant
+    auth-service:
+      sensitiveHeaders:
+      path: /auth-service/**
+      url: http://chippermitrais.ddns.net/auth
+    event-service:
+      sensitiveHeaders:
+      path: /event-service/**
+      url: http://chippermitrais.ddns.net/event
+    imagefile-service:
+      sensitiveHeaders:
+      path: /imagefile-service/**
+      url: http://chippermitrais.ddns.net/imagefile
+    oauth-service:
+      sensitiveHeaders:
+      path: /oauth-service/**
+      url: http://chippermitrais.ddns.net/oauth
+    profile-service:
+      sensitiveHeaders:
+      path: /profile-service/**
+      url: http://chippermitrais.ddns.net/profile
+    user-service:
+      sensitiveHeaders:
+      path: /user-service/**
+      url: http://chippermitrais.ddns.net/user
 
-hello-world-service:
-  ribbon:
-    listOfServers: hello-world-service:9091
+
+
+#hello-world-service:
+#  ribbon:
+#    listOfServers: hello-world-service:9091
+#    listOfServers: localhost:9091
 
 ribbon:
+  ConnectTimeout: 120000
+  ReadTimeout: 120000
   eureka:
-    enabled: false
+    enabled: true
 
 #Actuator contains the health indicators used by Eureka Server to determine
 # the health of the service.
