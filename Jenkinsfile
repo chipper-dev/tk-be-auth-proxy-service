@@ -3,7 +3,7 @@ node{
     def name = "tk-be-proxy-auth-service"
     def port = "9090"
     def network = "tk-be-network"
-    def eurekaServer = "http://chippermitrais.ddns.net:8761"
+    def eurekaServer = "http://tk-be-discovery-service:8761"
     def build = "${env.BUILD_NUMBER}"
     def version = "1"
     def imageName = "chippermitrais/$name"
