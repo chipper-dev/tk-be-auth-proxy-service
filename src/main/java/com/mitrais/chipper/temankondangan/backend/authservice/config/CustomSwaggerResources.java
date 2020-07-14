@@ -17,7 +17,7 @@ public class CustomSwaggerResources implements SwaggerResourcesProvider {
     @Override
     public List<SwaggerResource> get() {
         List<SwaggerResource> resources = new ArrayList<>();
-        resources.add(swaggerResource("hello-world-service", "/hello-service/v2/api-docs", "2.0"));
+        resources.add(swaggerResource("profile-service", "/profile/v2/api-docs", "2.0"));
         return resources;
     }
 
