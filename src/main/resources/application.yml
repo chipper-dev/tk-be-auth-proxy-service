@@ -3,7 +3,7 @@ server:
 
 spring:
   application:
-    name: proxy-auth-service
+    name: gateway-service
 #  cloud:
 ##    config:
 ##      uri: ${CONFIG_SERVICE_URL}:8888
@@ -19,7 +19,7 @@ management:
       enabled: true
     web:
       exposure:
-        include=*:
+        include: "*"
 
 eureka:
   instance:
@@ -35,55 +35,69 @@ eureka:
       duration: 5
 
 zuul:
-  igoredServices: '*'
+  ignoredServices: '*'
   host:
     connect-timeout-millis: 30000
     socket-timeout-millis: 30000
   routes:
     hello-world-service:
-      path: /hello-service/**
-      serviceId: hello-world-service
+      sensitiveHeaders:
+      path: /hello/**
+      serviceId: legacy-service
+      strip-prefix: false
     applicant-service:
       sensitiveHeaders:
       path: /applicant/**
-      url: http://chippermitrais.ddns.net/applicant
+#      url: ${SERVICES_URL:http://chippermitrais.ddns.net}/applicant
+      serviceId: legacy-service
+      strip-prefix: false
     auth-service:
       sensitiveHeaders:
       path: /auth/**
-      url: http://chippermitrais.ddns.net/auth
+#      url: ${SERVICES_URL:http://chippermitrais.ddns.net}/auth
+      serviceId: auth-service
+#      service-id: legacy-service
+      strip-prefix: false
     event-service:
       sensitiveHeaders:
       path: /event/**
-      url: http://chippermitrais.ddns.net/event
+#      url: ${SERVICES_URL:http://chippermitrais.ddns.net}/event
+      serviceId: legacy-service
+      strip-prefix: false
     imagefile-service:
       sensitiveHeaders:
       path: /imagefile/**
-      url: http://chippermitrais.ddns.net/imagefile
+#      url: ${SERVICES_URL:http://chippermitrais.ddns.net}/imagefile
+      serviceId: legacy-service
+      strip-prefix: false
     oauth-service:
       sensitiveHeaders:
       path: /oauth/**
-      url: http://chippermitrais.ddns.net/oauth
+#      url: ${SERVICES_URL:http://chippermitrais.ddns.net}/oauth
+      serviceId: legacy-service
+      strip-prefix: false
     profile-service:
       sensitiveHeaders:
       path: /profile/**
       serviceId: profile-service
+      strip-prefix: true
     user-service:
       sensitiveHeaders:
       path: /user/**
-      url: http://chippermitrais.ddns.net/user
-
-
+#      url: ${SERVICES_URL:http://chippermitrais.ddns.net}/user
+      serviceId: legacy-service
+      strip-prefix: false
 
 #hello-world-service:
 #  ribbon:
 #    listOfServers: hello-world-service:9091
 #    listOfServers: localhost:9091
 
-ribbon:
-  ConnectTimeout: 120000
-  ReadTimeout: 120000
-  eureka:
-    enabled: true
+#ribbon:
+#  ConnectTimeout: 120000
+#  ReadTimeout: 120000
+#  eureka:
+#    enabled: true
 
 #Actuator contains the health indicators used by Eureka Server to determine
 # the health of the service.
