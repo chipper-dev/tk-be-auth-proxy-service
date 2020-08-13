@@ -43,39 +43,40 @@ zuul:
     hello-world-service:
       sensitiveHeaders:
       path: /hello/**
-      serviceId: legacy-service
-      strip-prefix: false
+      url: ${SERVICES_URL:http://chippermitrais.ddns.net}/applicant
+#      serviceId: legacy-service
+#      strip-prefix: false
     applicant-service:
       sensitiveHeaders:
       path: /applicant/**
-#      url: ${SERVICES_URL:http://chippermitrais.ddns.net}/applicant
-      serviceId: legacy-service
-      strip-prefix: false
+      url: ${SERVICES_URL:http://chippermitrais.ddns.net}/applicant
+#      serviceId: legacy-service
+#      strip-prefix: false
     auth-service:
       sensitiveHeaders:
       path: /auth/**
-#      url: ${SERVICES_URL:http://chippermitrais.ddns.net}/auth
-      serviceId: auth-service
+      url: ${SERVICES_URL:http://chippermitrais.ddns.net}/auth
+#      serviceId: auth-service
 #      service-id: legacy-service
-      strip-prefix: false
+#      strip-prefix: false
     event-service:
       sensitiveHeaders:
       path: /event/**
-#      url: ${SERVICES_URL:http://chippermitrais.ddns.net}/event
-      serviceId: legacy-service
-      strip-prefix: false
+      url: ${SERVICES_URL:http://chippermitrais.ddns.net}/event
+#      serviceId: legacy-service
+#      strip-prefix: false
     imagefile-service:
       sensitiveHeaders:
       path: /imagefile/**
-#      url: ${SERVICES_URL:http://chippermitrais.ddns.net}/imagefile
-      serviceId: legacy-service
-      strip-prefix: false
+      url: ${SERVICES_URL:http://chippermitrais.ddns.net}/imagefile
+#      serviceId: legacy-service
+#      strip-prefix: false
     oauth-service:
       sensitiveHeaders:
       path: /oauth/**
-#      url: ${SERVICES_URL:http://chippermitrais.ddns.net}/oauth
-      serviceId: legacy-service
-      strip-prefix: false
+      url: ${SERVICES_URL:http://chippermitrais.ddns.net}/oauth
+#      serviceId: legacy-service
+#      strip-prefix: false
     profile-service:
       sensitiveHeaders:
       path: /profile/**
@@ -84,20 +85,20 @@ zuul:
     user-service:
       sensitiveHeaders:
       path: /user/**
-#      url: ${SERVICES_URL:http://chippermitrais.ddns.net}/user
-      serviceId: legacy-service
-      strip-prefix: false
+      url: ${SERVICES_URL:http://chippermitrais.ddns.net}/user
+#      serviceId: legacy-service
+#      strip-prefix: false
 
 #hello-world-service:
 #  ribbon:
 #    listOfServers: hello-world-service:9091
 #    listOfServers: localhost:9091
 
-#ribbon:
-#  ConnectTimeout: 120000
-#  ReadTimeout: 120000
-#  eureka:
-#    enabled: true
+ribbon:
+  ConnectTimeout: 120000
+  ReadTimeout: 120000
+  eureka:
+    enabled: true
 
 #Actuator contains the health indicators used by Eureka Server to determine
 # the health of the service.
