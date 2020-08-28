@@ -44,38 +44,38 @@ zuul:
       sensitiveHeaders:
       path: /hello/**
 #      url: ${SERVICES_URL:http://chippermitrais.ddns.net}/applicant
-      serviceId: legacy-service
+      serviceId: legacy-service-clone
       strip-prefix: false
     applicant-service:
       sensitiveHeaders:
       path: /applicant/**
 #      url: ${SERVICES_URL:http://chippermitrais.ddns.net}/applicant
-      serviceId: legacy-service
+      serviceId: legacy-service-clone
       strip-prefix: false
     auth-service:
       sensitiveHeaders:
       path: /auth/**
 #      url: ${SERVICES_URL:http://chippermitrais.ddns.net}/auth
 #      serviceId: auth-service
-      service-id: legacy-service
+      service-id: legacy-service-clone
       strip-prefix: false
     event-service:
       sensitiveHeaders:
       path: /event/**
 #      url: ${SERVICES_URL:http://chippermitrais.ddns.net}/event
-      serviceId: legacy-service
+      serviceId: legacy-service-clone
       strip-prefix: false
     imagefile-service:
       sensitiveHeaders:
       path: /imagefile/**
 #      url: ${SERVICES_URL:http://chippermitrais.ddns.net}/imagefile
-      serviceId: legacy-service
+      serviceId: legacy-service-clone
       strip-prefix: false
     oauth-service:
       sensitiveHeaders:
       path: /oauth/**
 #      url: ${SERVICES_URL:http://chippermitrais.ddns.net}/oauth
-      serviceId: legacy-service
+      serviceId: legacy-service-clone
       strip-prefix: false
     profile-service:
       sensitiveHeaders:
@@ -86,7 +86,7 @@ zuul:
       sensitiveHeaders:
       path: /user/**
 #      url: ${SERVICES_URL:http://chippermitrais.ddns.net}/user
-      serviceId: legacy-service
+      serviceId: legacy-service-clone
       strip-prefix: false
 
 #hello-world-service:
